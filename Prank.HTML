@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ultimate Instagram Virus Injector Prank</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+  body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+  h1 {
+    text-shadow: 0 0 10px #0f0;
+    margin-bottom: 15px;
+  }
+  input, button {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    margin: 10px 0;
+    width: 350px;
+    border-radius: 6px;
+    border: 2px solid #0f0;
+    background: #000;
+    color: #0f0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  input:focus {
+    outline: none;
+    background: #002200;
+  }
+  button:hover {
+    background: #0f0;
+    color: #000;
+    cursor: pointer;
+  }
+  #console {
+    margin-top: 20px;
+    width: 90vw;
+    max-width: 900px;
+    height: 450px;
+    background: #001100;
+    border: 2px solid #0f0;
+    border-radius: 8px;
+    padding: 20px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-size: 15px;
+    line-height: 1.3;
+    box-shadow: 0 0 20px #0f0aa;
+  }
+  .line {
+    margin-bottom: 6px;
+  }
+  .green {
+    color: #0f0;
+  }
+  .red {
+    color: #ff4444;
+  }
+  .loading-bar {
+    background: #003300;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    margin: 10px 0;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .loading-progress {
+    background: linear-gradient(90deg, #0f0, #5f5);
+    height: 100%;
+    width: 0%;
+    border-radius: 5px 0 0 5px;
+    transition: width 0.3s ease;
+  }
+  .typing-cursor {
+    display: inline-block;
+    width: 12px;
+    height: 20px;
+    background-color: #0f0;
+    animation: blink 1s steps(2, start) infinite;
+    vertical-align: bottom;
+    margin-left: 5px;
+  }
+  @keyframes blink {
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0;}
+  }
+</style>
+</head>
+<body>
+
+<h1>Ultimate Instagram Virus Injector 💀 </h1>
+<input type="text" id="username" placeholder="Enter Instagram Username" autocomplete="off" />
+<button id="startBtn">Start Injection</button>
+
+<div id="console"></div>
+
+<script>
+const consoleEl = document.getElementById('console');
+const startBtn = document.getElementById('startBtn');
+const usernameInput = document.getElementById('username');
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function typeLine(text, color = '#0f0', delay = 30) {
+  return new Promise(async (resolve) => {
+    const lineEl = document.createElement('div');
+    lineEl.classList.add('line');
+    lineEl.style.color = color;
+    consoleEl.appendChild(lineEl);
+
+    for(let i = 0; i < text.length; i++) {
+      lineEl.textContent += text.charAt(i);
+      await sleep(delay);
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+    }
+    resolve();
+  });
+}
+
+function createLoadingBar() {
+  const container = document.createElement('div');
+  container.className = 'loading-bar';
+  const progress = document.createElement('div');
+  progress.className = 'loading-progress';
+  container.appendChild(progress);
+  consoleEl.appendChild(container);
+  consoleEl.scrollTop = consoleEl.scrollHeight;
+  return progress;
+}
+
+async function animateLoading(progress, duration = 4000) {
+  return new Promise(resolve => {
+    let start = null;
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      let elapsed = timestamp - start;
+      let percent = Math.min((elapsed / duration) * 100, 100);
+      progress.style.width = percent + '%';
+      consoleEl.scrollTop = consoleEl.scrollHeight;
+      if (percent < 100) {
+        requestAnimationFrame(step);
+      } else {
+        resolve();
+      }
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+async function runPrank(username) {
+  consoleEl.innerHTML = '';
+  
+  await typeLine(`Initializing connection to Instagram user: @${username}...`);
+  await sleep(1000);
+  await typeLine('Establishing encrypted tunnel to Instagram servers...');
+  const progress1 = createLoadingBar();
+  await animateLoading(progress1, 4000);
+
+  await typeLine('Tunnel established successfully.');
+  await sleep(800);
+
+  await typeLine('Performing brute-force login bypass...');
+  const progress2 = createLoadingBar();
+  await animateLoading(progress2, 5000);
+
+  await typeLine('Bypass successful. Extracting access tokens...');
+  await sleep(800);
+
+  await typeLine('Injecting custom virus payload into account database...');
+  const progress3 = createLoadingBar();
+  await animateLoading(progress3, 6000);
+
+  await typeLine('Payload injected.');
+  await sleep(700);
+
+  await typeLine('Activating backdoor access tools...');
+  const progress4 = createLoadingBar();
+  await animateLoading(progress4, 5000);
+
+  await typeLine('Backdoor activated. Retrieving sensitive data...');
+  const progress5 = createLoadingBar();
+  await animateLoading(progress5, 7000);
+
+  await typeLine('Downloading user messages, photos, and contacts...');
+  const progress6 = createLoadingBar();
+  await animateLoading(progress6, 8000);
+
+  await typeLine('All data extracted successfully.', '#0ff');
+  await sleep(1000);
+
+  await typeLine('\n⚠️ WARNING:REAL HACKING OCCURRED! ⚠️', '#ff4444');
+  await typeLine(`\n@${username}'s Instagram account remains 100% safe and secure.`);
+  await typeLine('Please use responsibly and never attempt real hacking.');
+  await typeLine('\n😂 Hacked along! Have a great day! 😂');
+}
+
+startBtn.addEventListener('click', () => {
+  const username = usernameInput.value.trim();
+  if (!username) {
+    alert('Please enter a valid Instagram username!');
+    return;
+  }
+  runPrank(username);
+});
+
+usernameInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') startBtn.click();
+});
+</script>
+
+</body>
+</html>
